@@ -1,0 +1,437 @@
+{
+    "Comment": {
+        "prefix": "REM",
+        "body": [
+            "REM ${1:Comment}"
+        ],
+        "description": "BASIC/Win style comment"
+    },
+    "Comment Block": {
+        "prefix": "REM_BLOCK",
+        "body": [
+            "REM_BLOCK",
+            "\t$0",
+            "END_REM"
+        ],
+        "description": "Block comment"
+    },
+    "String": {
+        "prefix": "STRING",
+        "body": [
+            "STRING ${1:text}"
+        ],
+        "description": "Types out text as-is"
+    },
+    "String Line": {
+        "prefix": "STRINGLN",
+        "body": [
+            "STRINGLN ${1:text}"
+        ],
+        "description": "Types text and presses Enter at the end"
+    },
+    "String Block": {
+        "prefix": "STRING_BLOCK",
+        "body": [
+            "STRING_BLOCK",
+            "\t$0",
+            "END_STRING"
+        ],
+        "description": "Types everything inside as-is (no Enter on new lines)"
+    },
+    "String Line Block": {
+        "prefix": "STRINGLN_BLOCK",
+        "body": [
+            "STRINGLN_BLOCK",
+            "\t$0",
+            "END_STRINGLN"
+        ],
+        "description": "Types everything inside, press Enter at end of each line"
+    },
+    "Delay": {
+        "prefix": "DELAY",
+        "body": [
+            "DELAY ${1:milliseconds}"
+        ],
+        "description": "Pause execution for n milliseconds"
+    },
+    "Default Delay": {
+        "prefix": "DEFAULTDELAY",
+        "body": [
+            "DEFAULTDELAY ${1:20}"
+        ],
+        "description": "Wait time between non-letter input actions"
+    },
+    "Default Char Delay": {
+        "prefix": "DEFAULTCHARDELAY",
+        "body": [
+            "DEFAULTCHARDELAY ${1:20}"
+        ],
+        "description": "Wait time between each letter when typing"
+    },
+    "Char Jitter": {
+        "prefix": "CHARJITTER",
+        "body": [
+            "CHARJITTER ${1:0}"
+        ],
+        "description": "Adds random delay up to n milliseconds after each letter"
+    },
+    "Repeat": {
+        "prefix": "REPEAT",
+        "body": [
+            "REPEAT ${1:times}"
+        ],
+        "description": "Repeats the last line n times"
+    },
+    "Key Down": {
+        "prefix": "KEYDOWN",
+        "body": [
+            "KEYDOWN ${1:KEY_NAME}"
+        ],
+        "description": "Hold a key down"
+    },
+    "Key Up": {
+        "prefix": "KEYUP",
+        "body": [
+            "KEYUP ${1:KEY_NAME}"
+        ],
+        "description": "Release a key"
+    },
+    "Mouse Move": {
+        "prefix": "MOUSE_MOVE",
+        "body": [
+            "MOUSE_MOVE ${1:x} ${2:y}"
+        ],
+        "description": "Move mouse cursor (X: +/- Right/Left, Y: +/- Up/Down)"
+    },
+    "Mouse Scroll": {
+        "prefix": "MOUSE_SCROLL",
+        "body": [
+            "MOUSE_SCROLL ${1:horizontal} ${2:vertical}"
+        ],
+        "description": "Scroll mouse wheel"
+    },
+    "Left Mouse Click": {
+        "prefix": "LMOUSE",
+        "body": ["LMOUSE"],
+        "description": "Click Mouse Left Button"
+    },
+    "Right Mouse Click": {
+        "prefix": "RMOUSE",
+        "body": ["RMOUSE"],
+        "description": "Click Mouse Right Button"
+    },
+    "Middle Mouse Click": {
+        "prefix": "MMOUSE",
+        "body": ["MMOUSE"],
+        "description": "Click Mouse Middle Button"
+    },
+    "Forward Mouse Click": {
+        "prefix": "FMOUSE",
+        "body": ["FMOUSE"],
+        "description": "Click Mouse Forward Button"
+    },
+    "Back Mouse Click": {
+        "prefix": "BMOUSE",
+        "body": ["BMOUSE"],
+        "description": "Click Mouse Back Button"
+    },
+    "Loop Label": {
+        "prefix": "LOOP",
+        "body": [
+            "LOOP${1:0}:",
+            "\t${2:STRINGLN Action}"
+        ],
+        "description": "Assign multiple actions to one key (LOOP0, LOOP1, etc.)"
+    },
+    "Variable Declaration": {
+        "prefix": "VAR",
+        "body": [
+            "VAR ${1:name} = ${2:0}"
+        ],
+        "description": "Declare variable"
+    },
+    "Define Constant": {
+        "prefix": "DEFINE",
+        "body": [
+            "DEFINE ${1:NAME} ${2:value}"
+        ],
+        "description": "Define a constant to be replaced during preprocessing"
+    },
+    "If Statement": {
+        "prefix": "IF",
+        "body": [
+            "IF ${1:condition}",
+            "\t$0",
+            "END_IF"
+        ],
+        "description": "Conditional statements"
+    },
+    "Else If": {
+        "prefix": "ELSE IF",
+        "body": [
+            "ELSE IF ${1:condition}",
+            "\t"
+        ],
+        "description": "Else If condition"
+    },
+    "Else": {
+        "prefix": "ELSE",
+        "body": [
+            "ELSE",
+            "\t"
+        ],
+        "description": "Else condition"
+    },
+    "While Loop": {
+        "prefix": "WHILE",
+        "body": [
+            "WHILE ${1:condition}",
+            "\t$0",
+            "END_WHILE"
+        ],
+        "description": "Repeat actions while condition is true"
+    },
+    "Function": {
+        "prefix": "FUN",
+        "body": [
+            "FUN ${1:name}(${2:args})",
+            "\t$0",
+            "END_FUN"
+        ],
+        "description": "Define a function"
+    },
+    "Return": {
+        "prefix": "RETURN",
+        "body": [
+            "RETURN ${1:value}"
+        ],
+        "description": "Return from function (value optional)"
+    },
+    "Profile Switch Previous": {
+        "prefix": "PREV_PROFILE",
+        "body": ["PREV_PROFILE"],
+        "description": "Go to previous profile"
+    },
+    "Profile Switch Next": {
+        "prefix": "NEXT_PROFILE",
+        "body": ["NEXT_PROFILE"],
+        "description": "Go to next profile"
+    },
+    "Goto Profile": {
+        "prefix": "GOTO_PROFILE",
+        "body": [
+            "GOTO_PROFILE ${1:ProfileName}"
+        ],
+        "description": "Jump to a profile by name (Case Sensitive)"
+    },
+    "OLED Print": {
+        "prefix": "OLED_PRINT",
+        "body": [
+            "OLED_PRINT ${1:text}"
+        ],
+        "description": "Print message to display buffer"
+    },
+    "OLED Center Print": {
+        "prefix": "OLED_CPRINT",
+        "body": [
+            "OLED_CPRINT ${1:text}"
+        ],
+        "description": "Print center-aligned message to display buffer"
+    },
+    "OLED Cursor": {
+        "prefix": "OLED_CURSOR",
+        "body": [
+            "OLED_CURSOR ${1:x} ${2:y}"
+        ],
+        "description": "Set OLED cursor position"
+    },
+    "OLED Clear": {
+        "prefix": "OLED_CLEAR",
+        "body": ["OLED_CLEAR"],
+        "description": "Clear the display buffer"
+    },
+    "OLED Update": {
+        "prefix": "OLED_UPDATE",
+        "body": ["OLED_UPDATE"],
+        "description": "Push buffer to OLED display"
+    },
+    "OLED Restore": {
+        "prefix": "OLED_RESTORE",
+        "body": ["OLED_RESTORE"],
+        "description": "Restore default display"
+    },
+    "OLED Circle": {
+        "prefix": "OLED_CIRCLE",
+        "body": [
+            "OLED_CIRCLE ${1:x} ${2:y} ${3:radius} ${4:fill}"
+        ],
+        "description": "Draw circle (fill: 0 or 1)"
+    },
+    "OLED Line": {
+        "prefix": "OLED_LINE",
+        "body": [
+            "OLED_LINE ${1:x1} ${2:y1} ${3:x2} ${4:y2}"
+        ],
+        "description": "Draw line"
+    },
+    "OLED Rect": {
+        "prefix": "OLED_RECT",
+        "body": [
+            "OLED_RECT ${1:x1} ${2:y1} ${3:x2} ${4:y2} ${5:fill}"
+        ],
+        "description": "Draw rectangle (fill: 0 or 1)"
+    },
+    "RGB Set": {
+        "prefix": "SWC_SET",
+        "body": [
+            "SWC_SET ${1:key_n} ${2:r} ${3:g} ${4:b}"
+        ],
+        "description": "Set LED color (n=0 for current)"
+    },
+    "RGB Fill": {
+        "prefix": "SWC_FILL",
+        "body": [
+            "SWC_FILL ${1:r} ${2:g} ${3:b}"
+        ],
+        "description": "Set all LEDs to color"
+    },
+    "RGB Reset": {
+        "prefix": "SWC_RESET",
+        "body": [
+            "SWC_RESET ${1:key_n}"
+        ],
+        "description": "Reset key LED color (0:current key, 1-20: particular key, 99:all keys)"
+    },
+    "Use StdLib": {
+        "prefix": "USE_STDLIB",
+        "body": ["USE_STDLIB"],
+        "description": "Include duckyPad Standard Library"
+    },
+    "Use User Header": {
+        "prefix": "USE_UH",
+        "body": ["USE_UH"],
+        "description": "Include User Header"
+    },
+    "Rand Int": {
+        "prefix": "RANDINT",
+        "body": [
+            "RANDINT(${1:lower}, ${2:upper})"
+        ],
+        "description": "Get random integer between lower and upper (inclusive)"
+    },
+    "Sleep": {
+        "prefix": "DP_SLEEP",
+        "body": ["DP_SLEEP"],
+        "description": "Put device to sleep"
+    },
+    "Halt": {
+        "prefix": "HALT",
+        "body": ["HALT"],
+        "description": "Stop execution immediately"
+    },
+    "Clear Buffer": {
+        "prefix": "BCLR",
+        "body": ["BCLR"],
+        "description": "Clear internal keypress event queue"
+    },
+    
+    
+    "Special Key: CTRL": { "prefix": "CTRL", "body": ["CTRL"], "description": "Left Control" },
+    "Special Key: RCTRL": { "prefix": "RCTRL", "body": ["RCTRL"], "description": "Right Control" },
+    "Special Key: SHIFT": { "prefix": "SHIFT", "body": ["SHIFT"], "description": "Left Shift" },
+    "Special Key: RSHIFT": { "prefix": "RSHIFT", "body": ["RSHIFT"], "description": "Right Shift" },
+    "Special Key: ALT": { "prefix": "ALT", "body": ["ALT"], "description": "Left Alt" },
+    "Special Key: RALT": { "prefix": "RALT", "body": ["RALT"], "description": "Right Alt" },
+    "Special Key: WINDOWS": { "prefix": "WINDOWS", "body": ["WINDOWS"], "description": "Left Windows/GUI" },
+    "Special Key: GUI": { "prefix": "GUI", "body": ["GUI"], "description": "Left Windows/GUI" },
+    "Special Key: RWINDOWS": { "prefix": "RWINDOWS", "body": ["RWINDOWS"], "description": "Right Windows/GUI" },
+    "Special Key: COMMAND": { "prefix": "COMMAND", "body": ["COMMAND"], "description": "Left Command (Mac)" },
+    "Special Key: RCOMMAND": { "prefix": "RCOMMAND", "body": ["RCOMMAND"], "description": "Right Command (Mac)" },
+    "Special Key: OPTION": { "prefix": "OPTION", "body": ["OPTION"], "description": "Left Option (Mac)" },
+    "Special Key: ROPTION": { "prefix": "ROPTION", "body": ["ROPTION"], "description": "Right Option (Mac)" },
+    "Special Key: ESC": { "prefix": "ESC", "body": ["ESC"], "description": "Escape" },
+    "Special Key: ENTER": { "prefix": "ENTER", "body": ["ENTER"], "description": "Enter" },
+    "Special Key: UP": { "prefix": "UP", "body": ["UP"], "description": "Arrow Up" },
+    "Special Key: DOWN": { "prefix": "DOWN", "body": ["DOWN"], "description": "Arrow Down" },
+    "Special Key: LEFT": { "prefix": "LEFT", "body": ["LEFT"], "description": "Arrow Left" },
+    "Special Key: RIGHT": { "prefix": "RIGHT", "body": ["RIGHT"], "description": "Arrow Right" },
+    "Special Key: SPACE": { "prefix": "SPACE", "body": ["SPACE"], "description": "Spacebar" },
+    "Special Key: BACKSPACE": { "prefix": "BACKSPACE", "body": ["BACKSPACE"], "description": "Backspace" },
+    "Special Key: TAB": { "prefix": "TAB", "body": ["TAB"], "description": "Tab" },
+    "Special Key: CAPSLOCK": { "prefix": "CAPSLOCK", "body": ["CAPSLOCK"], "description": "Caps Lock" },
+    "Special Key: PRINTSCREEN": { "prefix": "PRINTSCREEN", "body": ["PRINTSCREEN"], "description": "Print Screen" },
+    "Special Key: SCROLLLOCK": { "prefix": "SCROLLLOCK", "body": ["SCROLLLOCK"], "description": "Scroll Lock" },
+    "Special Key: PAUSE": { "prefix": "PAUSE", "body": ["PAUSE"], "description": "Pause" },
+    "Special Key: BREAK": { "prefix": "BREAK", "body": ["BREAK"], "description": "Break" },
+    "Special Key: INSERT": { "prefix": "INSERT", "body": ["INSERT"], "description": "Insert" },
+    "Special Key: HOME": { "prefix": "HOME", "body": ["HOME"], "description": "Home" },
+    "Special Key: PAGEUP": { "prefix": "PAGEUP", "body": ["PAGEUP"], "description": "Page Up" },
+    "Special Key: PAGEDOWN": { "prefix": "PAGEDOWN", "body": ["PAGEDOWN"], "description": "Page Down" },
+    "Special Key: DELETE": { "prefix": "DELETE", "body": ["DELETE"], "description": "Delete" },
+    "Special Key: END": { "prefix": "END", "body": ["END"], "description": "End" },
+    "Special Key: MENU": { "prefix": "MENU", "body": ["MENU"], "description": "Menu / App" },
+    "Special Key: POWER": { "prefix": "POWER", "body": ["POWER"], "description": "Power" },
+    "Special Key: F1-F12": { "prefix": "F", "body": ["F${1:1}"], "description": "Function Keys F1-F24" },
+
+    "Media: Vol Up": { "prefix": "MK_VOLUP", "body": ["MK_VOLUP"], "description": "Volume Up" },
+    "Media: Vol Down": { "prefix": "MK_VOLDOWN", "body": ["MK_VOLDOWN"], "description": "Volume Down" },
+    "Media: Mute": { "prefix": "MK_MUTE", "body": ["MK_MUTE"], "description": "Mute Volume" },
+    "Media: Prev": { "prefix": "MK_PREV", "body": ["MK_PREV"], "description": "Previous Track" },
+    "Media: Next": { "prefix": "MK_NEXT", "body": ["MK_NEXT"], "description": "Next Track" },
+    "Media: Play/Pause": { "prefix": "MK_PP", "body": ["MK_PP"], "description": "Play / Pause" },
+    "Media: Stop": { "prefix": "MK_STOP", "body": ["MK_STOP"], "description": "Stop Media" },
+
+    "Numpad: Numlock": { "prefix": "NUMLOCK", "body": ["NUMLOCK"], "description": "Numlock" },
+    "Numpad: Slash": { "prefix": "KP_SLASH", "body": ["KP_SLASH"], "description": "Keypad /" },
+    "Numpad: Asterisk": { "prefix": "KP_ASTERISK", "body": ["KP_ASTERISK"], "description": "Keypad *" },
+    "Numpad: Minus": { "prefix": "KP_MINUS", "body": ["KP_MINUS"], "description": "Keypad -" },
+    "Numpad: Plus": { "prefix": "KP_PLUS", "body": ["KP_PLUS"], "description": "Keypad +" },
+    "Numpad: Enter": { "prefix": "KP_ENTER", "body": ["KP_ENTER"], "description": "Keypad Enter" },
+    "Numpad: Dot": { "prefix": "KP_DOT", "body": ["KP_DOT"], "description": "Keypad ." },
+    "Numpad: Equal": { "prefix": "KP_EQUAL", "body": ["KP_EQUAL"], "description": "Keypad =" },
+    "Numpad: Digit": { "prefix": "KP_", "body": ["KP_${1:0}"], "description": "Keypad Digits 0-9" },
+
+    "JIS: Zenkaku/Hankaku": { "prefix": "ZENKAKUHANKAKU", "body": ["ZENKAKUHANKAKU"], "description": "JIS Zenkaku/Hankaku" },
+    "JIS: Henkan": { "prefix": "HENKAN", "body": ["HENKAN"], "description": "JIS Henkan" },
+    "JIS: Muhenkan": { "prefix": "MUHENKAN", "body": ["MUHENKAN"], "description": "JIS Muhenkan" },
+    "JIS: Katakana/Hiragana": { "prefix": "KATAKANAHIRAGANA", "body": ["KATAKANAHIRAGANA"], "description": "JIS Katakana/Hiragana" },
+
+    "Var: Time Sec": { "prefix": "_TIME_S", "body": ["_TIME_S"], "description": "Elapsed time since power-on (Seconds) [RO]" },
+    "Var: Time MS": { "prefix": "_TIME_MS", "body": ["_TIME_MS"], "description": "Elapsed time since power-on (MS) [RO]" },
+    "Var: Read Key": { "prefix": "_READKEY", "body": ["_READKEY"], "description": "Non-blocking key read [RO]" },
+    "Var: Blocking Read": { "prefix": "_BLOCKING_READKEY", "body": ["_BLOCKING_READKEY"], "description": "Blocking key read [RO]" },
+    "Var: Switch Bitfield": { "prefix": "_SW_BITFIELD", "body": ["_SW_BITFIELD"], "description": "Bitfield of currently pressed keys [RO]" },
+    "Var: Numlock Status": { "prefix": "_IS_NUMLOCK_ON", "body": ["_IS_NUMLOCK_ON"], "description": "1 if NumLock is on [RO]" },
+    "Var: Capslock Status": { "prefix": "_IS_CAPSLOCK_ON", "body": ["_IS_CAPSLOCK_ON"], "description": "1 if CapsLock is on [RO]" },
+    "Var: Scrolllock Status": { "prefix": "_IS_SCROLLLOCK_ON", "body": ["_IS_SCROLLLOCK_ON"], "description": "1 if ScrollLock is on [RO]" },
+    "Var: Allow Abort": { "prefix": "_ALLOW_ABORT", "body": ["_ALLOW_ABORT"], "description": "Set 1 to allow aborting loops [RW]" },
+    "Var: Dont Repeat": { "prefix": "_DONT_REPEAT", "body": ["_DONT_REPEAT"], "description": "Set 1 to disable key repeat [RW]" },
+    "Var: This Key ID": { "prefix": "_THIS_KEYID", "body": ["_THIS_KEYID"], "description": "Key ID for current script [RO]" },
+    "Var: DP Model": { "prefix": "_DP_MODEL", "body": ["_DP_MODEL"], "description": "Device Model (1=duckyPad(2020), 2=duckyPad Pro (2024)) [RO]" },
+    "Var: Keypress Count": { "prefix": "_KEYPRESS_COUNT", "body": ["_KEYPRESS_COUNT"], "description": "Times current key pressed in profile [RW]" },
+    "Var: Unsigned Math": { "prefix": "_UNSIGNED_MATH", "body": ["_UNSIGNED_MATH"], "description": "Set 1 for unsigned math mode [RW]" },
+    
+    "RTC: Is Valid": { "prefix": "_RTC_IS_VALID", "body": ["_RTC_IS_VALID"], "description": "Check if RTC is initialized [RO]" },
+    "RTC: Year": { "prefix": "_RTC_YEAR", "body": ["_RTC_YEAR"], "description": "RTC Year (4-digit) [RO]" },
+    "RTC: Month": { "prefix": "_RTC_MONTH", "body": ["_RTC_MONTH"], "description": "RTC Month (1-12) [RO]" },
+    "RTC: Day": { "prefix": "_RTC_DAY", "body": ["_RTC_DAY"], "description": "RTC Day (1-31) [RO]" },
+    "RTC: Hour": { "prefix": "_RTC_HOUR", "body": ["_RTC_HOUR"], "description": "RTC Hour (0-23) [RO]" },
+    "RTC: Minute": { "prefix": "_RTC_MINUTE", "body": ["_RTC_MINUTE"], "description": "RTC Minute (0-59) [RO]" },
+    "RTC: Second": { "prefix": "_RTC_SECOND", "body": ["_RTC_SECOND"], "description": "RTC Second (0-60) [RO]" },
+    "RTC: Week Day": { "prefix": "_RTC_WDAY", "body": ["_RTC_WDAY"], "description": "RTC Day of Week (0=Sun) [RO]" },
+    "RTC: Year Day": { "prefix": "_RTC_YDAY", "body": ["_RTC_YDAY"], "description": "RTC Day of Year (0-365) [RO]" },
+    "RTC: UTC Offset": { "prefix": "_RTC_UTC_OFFSET", "body": ["_RTC_UTC_OFFSET"], "description": "RTC UTC Offset in minutes [RW]" },
+
+    "Random: Lowercase": { "prefix": "RANDOM_LOWERCASE_LETTER", "body": ["RANDOM_LOWERCASE_LETTER"], "description": "Type a random lowercase letter(a-z)" },
+    "Random: Uppercase": { "prefix": "RANDOM_UPPERCASE_LETTER", "body": ["RANDOM_UPPERCASE_LETTER"], "description": "Type a random uppercase letter(A-Z)" },
+    "Random: Number": { "prefix": "RANDOM_NUMBER", "body": ["RANDOM_NUMBER"], "description": "Type a random number(0-9)" },
+    "Random: Special": { "prefix": "RANDOM_SPECIAL", "body": ["RANDOM_SPECIAL"], "description": "Type a random symbol" },
+    "Random: Letter": { "prefix": "RANDOM_LETTER", "body": ["RANDOM_LETTER"], "description": "Type a random letter(a-z, A-Z)" },
+    "Random: Char": { "prefix": "RANDOM_CHAR", "body": ["RANDOM_CHAR"], "description": "Type a random character(all chars, numbers & symbols)" },
+
+    "Builtin: Peek": { "prefix": "PEEK8", "body": ["PEEK8(${1:addr})"], "description": "Read one byte at memory address" },
+    "Builtin: Poke": { "prefix": "POKE8", "body": ["POKE8(${1:addr}, ${2:value})"], "description": "Write one byte to memory address" },
+    "Builtin: RandChr": { "prefix": "RANDCHR", "body": ["RANDCHR(${1:bitfield})"], "description": "Generate random character via bitfield" },
+    "Builtin: Puts": { "prefix": "PUTS", "body": ["PUTS(${1:value})"], "description": "Print string at memory address" },
+    "Builtin: HIDTX": { "prefix": "HIDTX", "body": ["HIDTX(${1:addr})"], "description": "Send raw HID message" }
+}

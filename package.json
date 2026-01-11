@@ -21,6 +21,12 @@
       "language": "duckypad-duckyscript",
       "scopeName": "source.dpds",
       "path": "./syntaxes/duckypad-duckyscript.tmLanguage.json"
-    }]
+    }],
+    "snippets": [
+      {
+        "language": "duckypad-duckyscript", 
+        "path": "./snippets/duckypad-duckyscript.json"
+      }
+    ]
   }
 }
