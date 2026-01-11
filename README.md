@@ -1,16 +1,35 @@
 # duckyPad duckyScript Syntax Highlighter
 
-Provides syntax highlighting for **duckyScript** on [duckyPad](https://duckypad.com) macro pads.
-
-For Both **VS Code** and **Sublime Text**
+Provides **syntax highlighting** and **smart snippets** for **duckyScript** on [duckyPad](https://duckypad.com) macro pads.
 
 ## Install: VS Code
 
-TBD
+* [Download Latest Release](https://github.com/duckyPad/duckyScript-Syntax-Highlighter/releases/latest)
+	* Pick `VS Code`
+* In VS Code side bar, click `Extension` icon.
+![Alt text](./resources/ext.png)
+* Drag the `.vsix` file into the extension list
+![Alt text](./resources/drag.png)
+
+---
+
+* Press `CTRL+SHIFT+P`
+* Start typing `Change Language Mode`, press enter.
+* Start typing `duckyPad duckyScript`, press enter. 
 
 ## Install: Sublime Text
 
-TBD
+* [Download Latest Release](https://github.com/duckyPad/duckyScript-Syntax-Highlighter/releases/latest)
+	* Pick `Sublime Text`
+* Unzip
+* In Sublime Text menu bar, select **`Preference -> Browse Packages...`**
+* Drag **`duckypad_duckyScript`** folder **AS-IS** into the window just opened
+
+----------
+
+* Press `CTRL+SHIFT+P`
+* Start typing "duckyPad" 
+* Select `Set Syntax: duckyPad-duckyScript`
 
 ## Build
 
