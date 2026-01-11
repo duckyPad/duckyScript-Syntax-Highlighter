@@ -191,6 +191,16 @@
         ],
         "description": "Repeat actions while condition is true"
     },
+    "Loop Continue": {
+        "prefix": "CONTINUE",
+        "body": ["CONTINUE"],
+        "description": "Restart at beginning of loop"
+    },
+    "Loop Break": {
+        "prefix": "LBREAK",
+        "body": ["LBREAK"],
+        "description": "Exit loop"
+    },
     "Function": {
         "prefix": "FUN",
         "body": [

@@ -1,6 +1,6 @@
 # duckyPad duckyScript Syntax Highlighter
 
-Provides **syntax highlighting** and **smart snippets** for **duckyScript** on [duckyPad](https://duckypad.com) macro pads.
+Provides **syntax highlighting** and **smart snippets** for **duckyScript** on [duckyPad macro pads](https://duckypad.com).
 
 ## Install: VS Code
 
