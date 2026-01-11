@@ -1,0 +1,231 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "duckyPad duckyScript",
+    "scopeName": "source.dpds",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#blocks" },
+        { "include": "#commands-string" },
+        { "include": "#commands-oled" },
+        { "include": "#commands-mouse" },
+        { "include": "#commands-led" },
+        { "include": "#commands-profile" },
+        { "include": "#keywords-control" },
+        { "include": "#keywords-general" },
+        { "include": "#declarations" },
+        { "include": "#function-calls" },
+        { "include": "#variables" },
+        { "include": "#keys" },
+        { "include": "#operators" },
+        { "include": "#numbers" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.dpds",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.line.rem.dpds",
+                    "match": "\\bREM\\b.*$"
+                }
+            ]
+        },
+        "blocks": {
+            "patterns": [
+                {
+                    "name": "comment.block.rem.dpds",
+                    "begin": "\\b(REM_BLOCK)\\b",
+                    "end": "\\b(END_REM)\\b",
+                    "beginCaptures": { "1": { "name": "punctuation.definition.comment.dpds" } },
+                    "endCaptures": { "1": { "name": "punctuation.definition.comment.dpds" } }
+                },
+                {
+                    "name": "string.unquoted.block.dpds",
+                    "begin": "\\b(STRING_BLOCK|STRINGLN_BLOCK)\\b",
+                    "end": "\\b(END_STRING|END_STRINGLN)\\b",
+                    "beginCaptures": { "1": { "name": "keyword.control.string.dpds" } },
+                    "endCaptures": { "1": { "name": "keyword.control.string.dpds" } },
+                    "patterns": [
+                        { "include": "#interpolation" }
+                    ]
+                }
+            ]
+        },
+        "commands-string": {
+            "name": "meta.command.string.dpds",
+            "begin": "\\b(STRING|STRINGLN)\\b",
+            "end": "$",
+            "beginCaptures": { "1": { "name": "keyword.other.string.dpds" } },
+            "patterns": [
+                { "include": "#interpolation" }
+            ]
+        },
+        "interpolation": {
+            "patterns": [
+                {
+                    "name": "variable.other.interpolation.dpds",
+                    "match": "(\\$)([a-zA-Z_][a-zA-Z0-9_]*)(?:(%)(\\d+)?([dDuUxX]))?",
+                    "captures": {
+                        "1": { "name": "punctuation.definition.variable.dpds" },
+                        "2": { "name": "variable.name.dpds" },
+                        "3": { "name": "keyword.operator.format-specifier.dpds" },
+                        "4": { "name": "constant.numeric.format-width.dpds" },
+                        "5": { "name": "storage.type.format-type.dpds" }
+                    }
+                }
+            ]
+        },
+        "keywords-control": {
+            "patterns": [
+                {
+                    "name": "keyword.control.conditional.dpds",
+                    "match": "\\b(IF|ELSE IF|ELSE|END_IF)\\b"
+                },
+                {
+                    "name": "keyword.control.loop.dpds",
+                    "match": "\\b(WHILE|END_WHILE|LBREAK|CONTINUE)\\b"
+                },
+                {
+                    "name": "keyword.control.function.dpds",
+                    "match": "\\b(FUN|FUNCTION|END_FUN|END_FUNCTION|RETURN)\\b"
+                },
+                {
+                    "name": "entity.name.function.label.dpds",
+                    "match": "^\\s*LOOP[0-9]+:"
+                }
+            ]
+        },
+        "keywords-general": {
+            "patterns": [
+                {
+                    "name": "keyword.other.command.dpds",
+                    "match": "\\b(DELAY|DEFAULTDELAY|DEFAULTCHARDELAY|CHARJITTER|WAITKEY|REPEAT|RANDCHR|RANDINT|HIDTX|USE_STDLIB|USE_UH|DP_SLEEP|HALT|BCLR)\\b"
+                },
+                {
+                    "name": "keyword.other.input.dpds",
+                    "match": "\\b(KEYDOWN|KEYUP)\\b"
+                }
+            ]
+        },
+        "commands-oled": {
+            "patterns": [
+                {
+                    "name": "meta.command.oled.print.dpds",
+                    "begin": "\\b(OLED_PRINT|OLED_CPRINT)\\b",
+                    "end": "$",
+                    "beginCaptures": { "1": { "name": "keyword.other.oled.dpds" } },
+                    "patterns": [
+                        { "include": "#interpolation" }
+                    ]
+                },
+                {
+                    "name": "keyword.other.oled.dpds",
+                    "match": "\\b(OLED_CURSOR|OLED_CLEAR|OLED_CIRCLE|OLED_LINE|OLED_RECT|OLED_UPDATE|OLED_RESTORE)\\b"
+                }
+            ]
+        },
+        "commands-mouse": {
+            "name": "keyword.other.mouse.dpds",
+            "match": "\\b(LMOUSE|RMOUSE|MMOUSE|FMOUSE|BMOUSE|MOUSE_MOVE|MOUSE_SCROLL)\\b"
+        },
+        "commands-led": {
+            "name": "keyword.other.led.dpds",
+            "match": "\\b(SWC_SET|SWC_FILL|SWC_RESET)\\b"
+        },
+        "commands-profile": {
+            "patterns": [
+                {
+                    "name": "meta.command.profile.goto.dpds",
+                    "begin": "\\b(GOTO_PROFILE)\\b",
+                    "end": "$",
+                    "beginCaptures": { "1": { "name": "keyword.other.profile.dpds" } },
+                    "patterns": [
+                        { "include": "#interpolation" }
+                    ]
+                },
+                {
+                    "name": "keyword.other.profile.dpds",
+                    "match": "\\b(PREV_PROFILE|NEXT_PROFILE)\\b"
+                }
+            ]
+        },
+        "declarations": {
+            "patterns": [
+                {
+                    "match": "\\b(DEFINE)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+                    "captures": {
+                        "1": { "name": "keyword.declaration.define.dpds" },
+                        "2": { "name": "variable.constant.dpds" }
+                    }
+                },
+                {
+                    "match": "\\b(VAR)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+                    "captures": {
+                        "1": { "name": "storage.type.var.dpds" },
+                        "2": { "name": "variable.other.readwrite.dpds" }
+                    }
+                }
+            ]
+        },
+        "function-calls": {
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+            "captures": {
+                "1": { "name": "entity.name.function.dpds" }
+            }
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.language.reserved.dpds",
+                    "match": "\\b_(TIME_S|TIME_MS|READKEY|BLOCKING_READKEY|SW_BITFIELD|IS_NUMLOCK_ON|IS_CAPSLOCK_ON|IS_SCROLLLOCK_ON|DEFAULTDELAY|DEFAULTCHARDELAY|CHARJITTER|ALLOW_ABORT|DONT_REPEAT|THIS_KEYID|DP_MODEL|KEYPRESS_COUNT|LOOP_SIZE|NEEDS_EPILOGUE|RTC_IS_VALID|RTC_YEAR|RTC_MONTH|RTC_DAY|RTC_HOUR|RTC_MINUTE|RTC_SECOND|RTC_WDAY|RTC_YDAY|RTC_UTC_OFFSET|UNSIGNED_MATH|GV[0-9]+)\\b"
+                },
+                {
+                    "name": "variable.other.readwrite.dpds",
+                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                }
+            ]
+        },
+        "keys": {
+            "name": "support.constant.keyboard.dpds",
+            "match": "\\b(CTRL|RCTRL|SHIFT|RSHIFT|ALT|RALT|WINDOWS|RWINDOWS|COMMAND|RCOMMAND|OPTION|ROPTION|ESC|ENTER|UP|DOWN|LEFT|RIGHT|SPACE|BACKSPACE|TAB|CAPSLOCK|PRINTSCREEN|SCROLLLOCK|PAUSE|BREAK|INSERT|HOME|PAGEUP|PAGEDOWN|DELETE|END|MENU|POWER|F[1-9]|F1[0-9]|F2[0-4]|MK_VOLUP|MK_VOLDOWN|MK_MUTE|MK_PREV|MK_NEXT|MK_PP|MK_STOP|NUMLOCK|KP_SLASH|KP_ASTERISK|KP_MINUS|KP_PLUS|KP_ENTER|KP_[0-9]|KP_DOT|KP_EQUAL|ZENKAKUHANKAKU|HENKAN|MUHENKAN|KATAKANAHIRAGANA)\\b"
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arithmetic.dpds",
+                    "match": "(\\+|\\-|\\*|\\/|%|\\*\\*)"
+                },
+                {
+                    "name": "keyword.operator.comparison.dpds",
+                    "match": "(==|!=|>|<|>=|<=)"
+                },
+                {
+                    "name": "keyword.operator.assignment.dpds",
+                    "match": "(=|\\+=|\\-=|\\*=|\\/=)"
+                },
+                {
+                    "name": "keyword.operator.logical.dpds",
+                    "match": "(&&|\\|\\||!)"
+                },
+                {
+                    "name": "keyword.operator.bitwise.dpds",
+                    "match": "(&|\\||\\^|~|<<|>>)"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.hex.dpds",
+                    "match": "\\b0x[0-9a-fA-F]+\\b"
+                },
+                {
+                    "name": "constant.numeric.decimal.dpds",
+                    "match": "\\b[0-9]+\\b"
+                }
+            ]
+        }
+    }
+}

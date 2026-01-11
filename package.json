@@ -1,0 +1,26 @@
+{
+  "name": "duckypad-duckyscript",
+  "displayName": "duckyPad-duckyScript",
+  "description": "duckyScript for duckyPad macropads",
+  "publisher": "dekuNukem",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.107.1"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "duckypad-duckyscript",
+      "aliases": ["duckyPad duckyScript", "duckypad-duckyscript"],
+      "extensions": ["dpds"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "duckypad-duckyscript",
+      "scopeName": "source.dpds",
+      "path": "./syntaxes/duckypad-duckyscript.tmLanguage.json"
+    }]
+  }
+}

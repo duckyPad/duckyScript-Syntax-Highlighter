@@ -1,0 +1,23 @@
+{
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "REM_BLOCK", "END_REM" ]
+    },
+    "brackets": [
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    "surroundingPairs": [
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": "^\\s*(IF|ELSE|ELSE IF|WHILE|FUN|FUNCTION|REM_BLOCK|STRING_BLOCK|STRINGLN_BLOCK).*$",
+        "decreaseIndentPattern": "^\\s*(END_IF|ELSE|ELSE IF|END_WHILE|END_FUN|END_FUNCTION|END_REM|END_STRING|END_STRINGLN).*$"
+    }
+}
