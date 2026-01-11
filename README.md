@@ -11,3 +11,7 @@ TBD
 ## Install: Sublime Text
 
 TBD
+
+## Build
+
+`vsce package`

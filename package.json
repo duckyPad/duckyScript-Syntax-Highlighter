@@ -3,6 +3,10 @@
   "displayName": "duckyPad-duckyScript",
   "description": "duckyScript for duckyPad macropads",
   "publisher": "dekuNukem",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duckyPad/duckyScript-Syntax-Highlighter"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.107.1"
