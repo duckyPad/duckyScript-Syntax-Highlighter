@@ -4,18 +4,26 @@ Provides **syntax highlighting** and **smart snippets** for **duckyScript** on [
 
 Recommended when writing **longer and more complex** scripts.
 
+## Command Palette Shortcut
+
+To open **Command Palette**
+
+* On **Windows/Linux**: Press `Control+Shift+P`
+* On **macOS**: Press `Command+Shift+P`
+
 ## Install: Visual Studio Code
 
 * [Download Latest Release](https://github.com/duckyPad/duckyScript-Syntax-Highlighter/releases/latest)
 	* Pick `VS Code`
 * In VS Code side bar, click `Extension` icon.
+
 ![Alt text](./resources/ext.png)
-* Drag the `.vsix` file into the extension list
+* Drag the `.vsix` file into the **extension list**
 ![Alt text](./resources/drag.png)
 
 ---
 
-* Press `CTRL+SHIFT+P`
+* Launch **Command Palette** again
 * Start typing `Change Language Mode`, press enter.
 * Start typing `duckyPad duckyScript`, press enter. 
 
@@ -24,12 +32,13 @@ Recommended when writing **longer and more complex** scripts.
 * [Download Latest Release](https://github.com/duckyPad/duckyScript-Syntax-Highlighter/releases/latest)
 	* Pick `Sublime Text`
 * Unzip
-* In Sublime Text menu bar, select **`Preference -> Browse Packages...`**
+* Launch **Command Palette**
+* Start typing `Browse Packages`, press `Enter`.
 * Drag **`duckypad_duckyScript`** folder **AS-IS** into the window just opened
 
 ----------
 
-* Press `CTRL+SHIFT+P`
+* Launch **Command Palette** again
 * Start typing "duckyPad" 
 * Select `Set Syntax: duckyPad-duckyScript`
 

@@ -329,6 +329,13 @@
         ],
         "description": "Get random integer between lower and upper (inclusive)"
     },
+    "Rand Unsigned Int": {
+        "prefix": "RANDUINT",
+        "body": [
+            "RANDUINT(${1:lower}, ${2:upper})"
+        ],
+        "description": "Get random unsigned integer between lower and upper (inclusive)"
+    },
     "Sleep": {
         "prefix": "DP_SLEEP",
         "body": ["DP_SLEEP"],
@@ -344,7 +351,83 @@
         "body": ["BCLR"],
         "description": "Clear internal keypress event queue"
     },
-    
+
+    "Peek 8-bit": {
+        "prefix": "PEEK8",
+        "body": ["PEEK8(${1:addr})"],
+        "description": "Read SIGNED 8-bit value at memory address"
+    },
+    "Peek 16-bit": {
+        "prefix": "PEEK16",
+        "body": ["PEEK16(${1:addr})"],
+        "description": "Read SIGNED 16-bit value at memory address"
+    },
+    "Peek 32-bit": {
+        "prefix": "PEEK32",
+        "body": ["PEEK32(${1:addr})"],
+        "description": "Read 32-bit value at memory address"
+    },
+    "Peek Unsigned 8-bit": {
+        "prefix": "PEEKU8",
+        "body": ["PEEKU8(${1:addr})"],
+        "description": "Read UNSIGNED 8-bit value at memory address"
+    },
+    "Peek Unsigned 16-bit": {
+        "prefix": "PEEKU16",
+        "body": ["PEEKU16(${1:addr})"],
+        "description": "Read UNSIGNED 16-bit value at memory address"
+    },
+    "Poke 8-bit": {
+        "prefix": "POKE8",
+        "body": ["POKE8(${1:addr}, ${2:value})"],
+        "description": "Write 8-bit value to memory address"
+    },
+    "Poke 16-bit": {
+        "prefix": "POKE16",
+        "body": ["POKE16(${1:addr}, ${2:value})"],
+        "description": "Write 16-bit value to memory address"
+    },
+    "Poke 32-bit": {
+        "prefix": "POKE32",
+        "body": ["POKE32(${1:addr}, ${2:value})"],
+        "description": "Write 32-bit value to memory address"
+    },
+
+    "Unsigned Less Than": {
+        "prefix": "ULT",
+        "body": ["ULT(${1:lhs}, ${2:rhs})"],
+        "description": "Unsigned Less Than comparison"
+    },
+    "Unsigned Less Than or Equal": {
+        "prefix": "ULTE",
+        "body": ["ULTE(${1:lhs}, ${2:rhs})"],
+        "description": "Unsigned Less Than or Equal comparison"
+    },
+    "Unsigned Greater Than": {
+        "prefix": "UGT",
+        "body": ["UGT(${1:lhs}, ${2:rhs})"],
+        "description": "Unsigned Greater Than comparison"
+    },
+    "Unsigned Greater Than or Equal": {
+        "prefix": "UGTE",
+        "body": ["UGTE(${1:lhs}, ${2:rhs})"],
+        "description": "Unsigned Greater Than or Equal comparison"
+    },
+    "Unsigned Division": {
+        "prefix": "UDIV",
+        "body": ["UDIV(${1:val}, ${2:n})"],
+        "description": "Unsigned integer division"
+    },
+    "Unsigned Modulo": {
+        "prefix": "UMOD",
+        "body": ["UMOD(${1:val}, ${2:n})"],
+        "description": "Unsigned modulus"
+    },
+    "Logical Right Shift": {
+        "prefix": "LSR",
+        "body": ["LSR(${1:val}, ${2:n})"],
+        "description": "Logical Right Shift (Zero-Extend)"
+    },
     
     "Special Key: CTRL": { "prefix": "CTRL", "body": ["CTRL"], "description": "Left Control" },
     "Special Key: RCTRL": { "prefix": "RCTRL", "body": ["RCTRL"], "description": "Right Control" },
@@ -411,6 +494,7 @@
     "Var: Read Key": { "prefix": "_READKEY", "body": ["_READKEY"], "description": "Non-blocking key read [RO]" },
     "Var: Blocking Read": { "prefix": "_BLOCKING_READKEY", "body": ["_BLOCKING_READKEY"], "description": "Blocking key read [RO]" },
     "Var: Switch Bitfield": { "prefix": "_SW_BITFIELD", "body": ["_SW_BITFIELD"], "description": "Bitfield of currently pressed keys [RO]" },
+    "Var: Keyboard LED Status": { "prefix": "_KBLED_BITFIELD", "body": ["_SW_BITFIELD"], "description": "Bitfield of keyboard LED status [RO]" },
     "Var: Numlock Status": { "prefix": "_IS_NUMLOCK_ON", "body": ["_IS_NUMLOCK_ON"], "description": "1 if NumLock is on [RO]" },
     "Var: Capslock Status": { "prefix": "_IS_CAPSLOCK_ON", "body": ["_IS_CAPSLOCK_ON"], "description": "1 if CapsLock is on [RO]" },
     "Var: Scrolllock Status": { "prefix": "_IS_SCROLLLOCK_ON", "body": ["_IS_SCROLLLOCK_ON"], "description": "1 if ScrollLock is on [RO]" },
@@ -419,7 +503,6 @@
     "Var: This Key ID": { "prefix": "_THIS_KEYID", "body": ["_THIS_KEYID"], "description": "Key ID for current script [RO]" },
     "Var: DP Model": { "prefix": "_DP_MODEL", "body": ["_DP_MODEL"], "description": "Device Model (1=duckyPad(2020), 2=duckyPad Pro (2024)) [RO]" },
     "Var: Keypress Count": { "prefix": "_KEYPRESS_COUNT", "body": ["_KEYPRESS_COUNT"], "description": "Times current key pressed in profile [RW]" },
-    "Var: Unsigned Math": { "prefix": "_UNSIGNED_MATH", "body": ["_UNSIGNED_MATH"], "description": "Set 1 for unsigned math mode [RW]" },
     
     "RTC: Is Valid": { "prefix": "_RTC_IS_VALID", "body": ["_RTC_IS_VALID"], "description": "Check if RTC is initialized [RO]" },
     "RTC: Year": { "prefix": "_RTC_YEAR", "body": ["_RTC_YEAR"], "description": "RTC Year (4-digit) [RO]" },
@@ -439,8 +522,6 @@
     "Random: Letter": { "prefix": "RANDOM_LETTER", "body": ["RANDOM_LETTER"], "description": "Type a random letter(a-z, A-Z)" },
     "Random: Char": { "prefix": "RANDOM_CHAR", "body": ["RANDOM_CHAR"], "description": "Type a random character(all chars, numbers & symbols)" },
 
-    "Builtin: Peek": { "prefix": "PEEK8", "body": ["PEEK8(${1:addr})"], "description": "Read one byte at memory address" },
-    "Builtin: Poke": { "prefix": "POKE8", "body": ["POKE8(${1:addr}, ${2:value})"], "description": "Write one byte to memory address" },
     "Builtin: RandChr": { "prefix": "RANDCHR", "body": ["RANDCHR(${1:bitfield})"], "description": "Generate random character via bitfield" },
     "Builtin: Puts": { "prefix": "PUTS", "body": ["PUTS(${1:value})"], "description": "Print string at memory address" },
     "Builtin: HIDTX": { "prefix": "HIDTX", "body": ["HIDTX(${1:addr})"], "description": "Send raw HID message" }
