@@ -29,6 +29,7 @@
     { "trigger": "WHILE", "contents": "WHILE ${1:condition}\n\t${0}\nEND_WHILE" },
     { "trigger": "LBREAK", "contents": "LBREAK" },
     { "trigger": "CONTINUE", "contents": "CONTINUE" },
+    { "trigger": "PASS", "contents": "PASS" },
 
     { "trigger": "FUN", "contents": "FUN ${1:name}(${2:args})\n\t${0}\nEND_FUN" },
     { "trigger": "RETURN", "contents": "RETURN ${1:value}" },

@@ -1,9 +1,15 @@
 # Change Log
 
-All notable changes to the "duckypad-duckyscript" extension will be documented in this file.
+## 0.0.2
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+Jan 15 2026
 
-## [Unreleased]
+* Added explicit unsigned operations
+* Added `PEEK` and `POKE` commands
+* Added `PASS` command
 
-- Initial release
+## 0.0.1
+
+Jan 11 2026 
+
+* Initial Release

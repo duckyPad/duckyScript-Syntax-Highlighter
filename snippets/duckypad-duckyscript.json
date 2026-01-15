@@ -196,6 +196,11 @@
         "body": ["CONTINUE"],
         "description": "Restart at beginning of loop"
     },
+    "Pass": {
+        "prefix": "PASS",
+        "body": ["PASS"],
+        "description": "Does nothing"
+    },
     "Loop Break": {
         "prefix": "LBREAK",
         "body": ["LBREAK"],

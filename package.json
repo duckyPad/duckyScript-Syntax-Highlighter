@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/duckyPad/duckyScript-Syntax-Highlighter"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.107.1"
   },
