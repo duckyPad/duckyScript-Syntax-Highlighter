@@ -278,9 +278,9 @@
     "OLED Circle": {
         "prefix": "OLED_CIRCLE",
         "body": [
-            "OLED_CIRCLE ${1:x} ${2:y} ${3:radius} ${4:fill}"
+            "OLED_CIRCLE ${1:x} ${2:y} ${3:radius} ${4:option}"
         ],
-        "description": "Draw circle (fill: 0 or 1)"
+        "description": "Draw circle (option: 0 = White Outline 1 = White Filled 2 = Black Outline 3 = Black Filled)"
     },
     "OLED Line": {
         "prefix": "OLED_LINE",
@@ -292,9 +292,9 @@
     "OLED Rect": {
         "prefix": "OLED_RECT",
         "body": [
-            "OLED_RECT ${1:x1} ${2:y1} ${3:x2} ${4:y2} ${5:fill}"
+            "OLED_RECT ${1:x1} ${2:y1} ${3:x2} ${4:y2} ${5:option}"
         ],
-        "description": "Draw rectangle (fill: 0 or 1)"
+        "description": "Draw rectangle (option: 0 = White Outline 1 = White Filled 2 = Black Outline 3 = Black Filled)"
     },
     "RGB Set": {
         "prefix": "SWC_SET",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.3
+
+Jan 17 2026
+
+* Added color options to `OLED_RECT` and `OLED_CIRCLE`
+
 ## 0.0.2
 
 Jan 15 2026

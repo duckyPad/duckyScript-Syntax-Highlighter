@@ -56,9 +56,9 @@
     { "trigger": "OLED_CLEAR", "contents": "OLED_CLEAR" },
     { "trigger": "OLED_UPDATE", "contents": "OLED_UPDATE" },
     { "trigger": "OLED_RESTORE", "contents": "OLED_RESTORE" },
-    { "trigger": "OLED_CIRCLE", "contents": "OLED_CIRCLE ${1:x} ${2:y} ${3:radius} ${4:fill}" },
+    { "trigger": "OLED_CIRCLE", "contents": "OLED_CIRCLE ${1:x} ${2:y} ${3:radius} ${4:option}" },
     { "trigger": "OLED_LINE", "contents": "OLED_LINE ${1:x1} ${2:y1} ${3:x2} ${4:y2}" },
-    { "trigger": "OLED_RECT", "contents": "OLED_RECT ${1:x1} ${2:y1} ${3:x2} ${4:y2} ${5:fill}" },
+    { "trigger": "OLED_RECT", "contents": "OLED_RECT ${1:x1} ${2:y1} ${3:x2} ${4:y2} ${5:option}" },
 
     { "trigger": "SWC_SET", "contents": "SWC_SET ${1:n} ${2:r} ${3:g} ${4:b}" },
     { "trigger": "SWC_FILL", "contents": "SWC_FILL ${1:r} ${2:g} ${3:b}" },
